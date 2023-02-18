@@ -2,10 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
+:root {
   background-color: #100824;
   color: #fff;
   text-align: center;
   font-family: Space Grotesk;
   font-size: large;
+  color-scheme: dark;
+}
+
+@layer utilities {
+  .glow {
+    color: #e238ec;
+    text-shadow: rgb(227, 56, 236) 0px 0px 10px;
+  }
+
+  .glass {
+    /* From https://css.glass */
+    background: rgba(226, 56, 236, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(17.6px);
+    -webkit-backdrop-filter: blur(17.6px);
+    border: 1px solid #e238ec;
+  }
 }

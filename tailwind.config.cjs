@@ -8,6 +8,9 @@ module.exports = {
       fontFamily: {
         passion: ['"Passion One"', ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        primary: "#e238ec",
+      },
     },
   },
   plugins: [],

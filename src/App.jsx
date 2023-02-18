@@ -1,10 +1,11 @@
-import "./App.css";
 import Navbar from "./components/Navbar";
+import Vision from "./components/Vision";
 
 function App() {
   return (
-    <div>
+    <div className="px-12">
       <Navbar />
+      <Vision />
     </div>
   );
 }
