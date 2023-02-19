@@ -40,14 +40,17 @@ const Navbar = () => {
         <FontAwesomeIcon
           className="cursor-pointer font-semibold hover:glow"
           icon={faDiscord}
+          onClick={() => window.open("https://discord.gg/uE33kBzWVh")}
         />
         <FontAwesomeIcon
           className="cursor-pointer font-semibold hover:glow"
           icon={faInstagram}
+          onClick={() => window.open("https://www.instagram.com/sehsaa_digi/")}
         />
         <FontAwesomeIcon
           className="cursor-pointer font-semibold hover:glow"
           icon={faTwitter}
+          onClick={() => window.open("https://twitter.com/sehsaa_digi")}
         />
         <div className="!ml-5 cursor-pointer font-semibold hover:glow">
           {IconOpenSea}

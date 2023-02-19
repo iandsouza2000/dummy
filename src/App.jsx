@@ -1,4 +1,5 @@
 import Navbar from "./components/Navbar";
+import Roadmap from "./components/Roadmap";
 import Vision from "./components/Vision";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div className="px-12">
       <Navbar />
       <Vision />
+      {/* <Roadmap /> */}
     </div>
   );
 }
