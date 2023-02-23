@@ -29,7 +29,7 @@ const nav = ["Home", "Vision", "Roadmap", "Team"];
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between py-4 items-center relative">
+    <div className="flex justify-between py-4 items-center relative px-10">
       <h1 className="text-3xl m-0 font-passion tracking-wide glow">SEHSAA</h1>
       <div className="flex space-x-10 absolute left-1/2 -translate-x-1/2">
         {nav.map((item) => (

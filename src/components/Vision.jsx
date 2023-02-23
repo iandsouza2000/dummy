@@ -26,7 +26,7 @@ const cards = [
 
 const Card = ({ item }) => {
   return (
-    <div className="glass w-[250px] text-left h-[350px] px-6 py-8 rounded-xl bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
+    <div className="glass w-[250px] text-left h-[350px] px-6 py-8 rounded-xl">
       <img src={item.img} width={50} />
       <div className="font-bold text-xl text-primary mt-8">{item.title}</div>
       <div className="text-sm mt-2">{item.description}</div>
