@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import FAQs from "./components/FAQs";
+import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import OurTeam from "./components/OurTeam";
 import Roadmap from "./components/Roadmap";
@@ -32,6 +34,8 @@ function App() {
       <Navbar />
       <Vision />
       <OurTeam />
+      <FAQs />
+      <Footer />
     </>
   );
 }
