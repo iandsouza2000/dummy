@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import FAQs from "./components/FAQs";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
-import OurTeam from "./components/OurTeam";
-import Roadmap from "./components/Roadmap";
-import Vision from "./components/Vision";
+import FAQs from "./sections/FAQs";
+import Footer from "./sections/Footer";
+import Navbar from "./sections/Navbar";
+import OurTeam from "./sections/OurTeam";
+import Roadmap from "./sections/Roadmap";
+import Vision from "./sections/Vision";
 
 function App() {
   const [scrollPercentage, setScrollPercentage] = useState(0);

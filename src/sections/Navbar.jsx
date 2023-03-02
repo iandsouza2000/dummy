@@ -4,7 +4,8 @@ import {
   faInstagram,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import React from "react";
+import React, { useState } from "react";
+import Sidebar from "../components/Sidebar";
 
 const IconOpenSea = (
   <svg
@@ -28,12 +29,19 @@ const IconOpenSea = (
 const nav = ["Home", "Vision", "Roadmap", "Team"];
 
 const Navbar = () => {
+  const [showSidebar, setShowSidebar] = useState(false);
+
   return (
     <div className="flex justify-between py-4 items-center relative px-10">
       <h1 className="text-3xl m-0 font-passion tracking-wide glow">SEHSAA</h1>
       <div className="flex space-x-10 absolute left-1/2 -translate-x-1/2">
         {nav.map((item) => (
-          <div className="cursor-pointer font-semibold hover:glow">{item}</div>
+          <div
+            className="cursor-pointer font-semibold hover:glow"
+            onClick={() => setShowSidebar(true)}
+          >
+            {item}
+          </div>
         ))}
       </div>
       <div className="flex items-center space-x-6">
@@ -56,6 +64,11 @@ const Navbar = () => {
           {IconOpenSea}
         </div>
       </div>
+      <Sidebar
+        nav={nav}
+        show={showSidebar}
+        onClose={() => setShowSidebar(false)}
+      />
     </div>
   );
 };
