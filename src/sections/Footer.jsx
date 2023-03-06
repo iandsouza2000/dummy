@@ -27,12 +27,11 @@ const IconOpenSea = (
 
 const Footer = () => {
   return (
-    <div className="mb-20 mt-40">
+    <div className="mb-10 mt-40 md:mb-20">
       <div className="flex flex-col justify-center align-center">
         <h1 className="text-5xl m-0 font-passion tracking-wide glow">SEHSAA</h1>
-        <p className="text-xl font-medium mt-5">
-          Step into the future of fashion with our <br /> one-of-a-kind NFT
-          designs!
+        <p className="font-medium mt-3 px-4 md:text-xl md:mt-5">
+          Step into the future of fashion with our one-of-a-kind NFT designs!
         </p>
         <div className="flex justify-center items-center space-x-6 mt-4">
           <FontAwesomeIcon
@@ -58,7 +57,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="border-t w-[80%] mx-auto pt-8 mt-32">
+      <div className="border-t w-[80%] mx-auto pt-8 mt-32 text-sm md:text-base">
         © 2023 Sehsaa. All Rights Reserved.
       </div>
     </div>

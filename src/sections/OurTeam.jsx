@@ -33,7 +33,7 @@ const OurTeam = () => {
     <div className="my-20 mx-10 flex justify-around mx-auto gap-y-10 w-[80%] flex-wrap">
       {team.map((item) => (
         <div className="text-left relative">
-          <div className="absolute inset-0 h-[500px] bg-black bg-opacity-70 px-10 py-20 flex flex-col justify-between font-medium  opacity-0 hover:opacity-100 transition duration-500 ease-in-out">
+          <div className="absolute text-[15px] inset-0 h-[350px] bg-black bg-opacity-70 px-5 py-6 flex flex-col justify-between font-medium  opacity-0 hover:opacity-100 transition duration-500 ease-in-out md:[500px] md:px-10 md:py-20">
             <div>{item.description}</div>
             <div className="flex justify-center space-x-5">
               <FontAwesomeIcon
@@ -51,14 +51,14 @@ const OurTeam = () => {
             </div>
           </div>
           <img
-            className="w-[400px] h-[500px] mb-6 rounded-xl border-2 border-primary transition duration-500 ease-in-out"
+            className="w-[250px] h-[350px] mb-4 rounded-xl border-2 border-primary transition duration-500 ease-in-out md:w-[400px] md:h-[500px] md:mb-6"
             src={dummyImg}
             alt="Team"
           />
-          <div className="text-2xl text-primary font-bold mb-1">
+          <div className="text-xl text-primary font-bold md:text-2xl md:mb-1">
             {item.name}
           </div>
-          <div>{item.role}</div>
+          <div className="text-sm md: text-base">{item.role}</div>
         </div>
       ))}
     </div>

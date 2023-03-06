@@ -6,6 +6,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import React, { useState } from "react";
 import Sidebar from "../components/Sidebar";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 const IconOpenSea = (
   <svg
@@ -32,37 +33,45 @@ const Navbar = () => {
   const [showSidebar, setShowSidebar] = useState(false);
 
   return (
-    <div className="flex justify-between py-4 items-center relative px-10">
-      <h1 className="text-3xl m-0 font-passion tracking-wide glow">SEHSAA</h1>
-      <div className="flex space-x-10 absolute left-1/2 -translate-x-1/2">
-        {nav.map((item) => (
-          <div
-            className="cursor-pointer font-semibold hover:glow"
-            onClick={() => setShowSidebar(true)}
-          >
-            {item}
-          </div>
-        ))}
-      </div>
-      <div className="flex items-center space-x-6">
-        <FontAwesomeIcon
-          className="cursor-pointer font-semibold hover:glow"
-          icon={faDiscord}
-          onClick={() => window.open("https://discord.gg/uE33kBzWVh")}
-        />
-        <FontAwesomeIcon
-          className="cursor-pointer font-semibold hover:glow"
-          icon={faInstagram}
-          onClick={() => window.open("https://www.instagram.com/sehsaa_digi/")}
-        />
-        <FontAwesomeIcon
-          className="cursor-pointer font-semibold hover:glow"
-          icon={faTwitter}
-          onClick={() => window.open("https://twitter.com/sehsaa_digi")}
-        />
-        <div className="!ml-5 cursor-pointer font-semibold hover:glow">
-          {IconOpenSea}
+    <div className="">
+      <div className=" justify-between py-4 items-center relative px-10 hidden md:flex">
+        <h1 className="text-3xl m-0 font-passion tracking-wide glow">SEHSAA</h1>
+        <div className="flex space-x-10 absolute left-1/2 -translate-x-1/2">
+          {nav.map((item) => (
+            <div className="cursor-pointer font-semibold hover:glow">
+              {item}
+            </div>
+          ))}
         </div>
+        <div className="flex items-center space-x-6">
+          <FontAwesomeIcon
+            className="cursor-pointer font-semibold hover:glow"
+            icon={faDiscord}
+            onClick={() => window.open("https://discord.gg/uE33kBzWVh")}
+          />
+          <FontAwesomeIcon
+            className="cursor-pointer font-semibold hover:glow"
+            icon={faInstagram}
+            onClick={() =>
+              window.open("https://www.instagram.com/sehsaa_digi/")
+            }
+          />
+          <FontAwesomeIcon
+            className="cursor-pointer font-semibold hover:glow"
+            icon={faTwitter}
+            onClick={() => window.open("https://twitter.com/sehsaa_digi")}
+          />
+          <div className="!ml-5 cursor-pointer font-semibold hover:glow">
+            {IconOpenSea}
+          </div>
+        </div>
+      </div>
+      <div className="flex w-full justify-end py-4 px-10 md:hidden">
+        <FontAwesomeIcon
+          className="text-xl"
+          icon={faBars}
+          onClick={() => setShowSidebar(true)}
+        />
       </div>
       <Sidebar
         nav={nav}

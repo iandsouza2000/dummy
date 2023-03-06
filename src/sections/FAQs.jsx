@@ -28,7 +28,7 @@ const questions = [
     a: "We'll announce the launch date on our discord.",
   },
   {
-    q: "How many Sehsaa NFT’s will be minted?",
+    q: "How many NFTs will be minted?",
     a: "There are just 10,000 Sehsaa NFTs. So, make sure you join our discord to get quick access to our NFT fashion collection launch.",
   },
   {
@@ -52,7 +52,7 @@ const Section = ({ item, index }) => {
     >
       <div
         onClick={() => setShow(!show)}
-        className="font-bold text-xl flex justify-between items-center cursor-pointer"
+        className="font-bold flex justify-between items-center cursor-pointer md:text-xl"
       >
         {item.q}
         <div
@@ -79,7 +79,7 @@ const Section = ({ item, index }) => {
               opacity: 0,
             }}
           >
-            <p className="pt-3"> {item.a}</p>
+            <p className="pt-3 text-sm md:text-lg"> {item.a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -89,7 +89,7 @@ const Section = ({ item, index }) => {
 
 const FAQs = () => {
   return (
-    <div className="my-20 text-left w-[750px] mx-auto bg-[#1a1229] rounded-xl px-10 py-4">
+    <div className="my-20 text-left w-[300px] mx-auto bg-[#1a1229] rounded-xl px-5 py-4 md:px-10 md:w-[750px]">
       {questions.map((item, index) => (
         <Section item={item} index={index} />
       ))}

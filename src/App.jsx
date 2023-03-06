@@ -28,11 +28,9 @@ function App() {
     };
   }, []);
 
-  console.log(scrollPercentage);
   return (
     <>
       <Navbar />
-      <Vision />
       <OurTeam />
       <FAQs />
       <Footer />
