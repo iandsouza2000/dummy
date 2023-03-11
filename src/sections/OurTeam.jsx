@@ -30,7 +30,10 @@ const team = [
 
 const OurTeam = () => {
   return (
-    <div className="w-[70vw] flex flex-wrap justify-around mx-auto gap-y-10 flex-wrap">
+    <div
+      id="teams"
+      className="w-[70vw] flex flex-wrap justify-around mx-auto gap-y-10 flex-wrap"
+    >
       {team.map((item) => (
         <div className="text-left relative">
           <div className="absolute text-[15px] inset-0 h-[350px] bg-black bg-opacity-70 px-5 py-6 flex flex-col justify-between font-medium  opacity-0 hover:opacity-100 transition duration-500 ease-in-out md:h-[400px] md:text-base md:px-10 md:py-10">

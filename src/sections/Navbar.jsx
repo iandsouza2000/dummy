@@ -4,7 +4,7 @@ import {
   faInstagram,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
@@ -27,10 +27,48 @@ const IconOpenSea = (
   </svg>
 );
 
-const nav = ["Home", "Vision", "Roadmap", "Team"];
+const nav = [
+  { name: "Home", id: "home" },
+  { name: "Roadmap", id: "roadmap" },
+  { name: "Team", id: "team" },
+  { name: "FAQ", id: "faqs" },
+];
 
 const Navbar = () => {
   const [showSidebar, setShowSidebar] = useState(false);
+
+  const [scrollPercentage, setScrollPercentage] = useState(0);
+
+  useEffect(() => {
+    const updateScrollPercentage = () => {
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      const scrollDistance = documentHeight - windowHeight;
+      const scrollPercentage = Math.min(scrollTop / scrollDistance, 1) * 100;
+
+      setScrollPercentage(scrollPercentage);
+    };
+
+    window.addEventListener("scroll", updateScrollPercentage);
+
+    return () => {
+      window.removeEventListener("scroll", updateScrollPercentage);
+    };
+  }, []);
+
+  const scroll = (id) => {
+    var element = document.getElementById(id);
+    var headerOffset = 96;
+    var elementPosition = element.getBoundingClientRect().top;
+    var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div className="">
@@ -38,30 +76,33 @@ const Navbar = () => {
         <h1 className="text-3xl m-0 font-passion tracking-wide glow">SEHSAA</h1>
         <div className="flex space-x-10 absolute left-1/2 -translate-x-1/2">
           {nav.map((item) => (
-            <div className="cursor-pointer font-semibold hover:glow">
-              {item}
+            <div
+              onClick={() => scroll(item.id)}
+              className="cursor-pointer font-semibold hover:text-primary"
+            >
+              {item.name}
             </div>
           ))}
         </div>
         <div className="flex items-center space-x-6">
           <FontAwesomeIcon
-            className="cursor-pointer font-semibold hover:glow"
+            className="cursor-pointer font-semibold hover:text-primary"
             icon={faDiscord}
             onClick={() => window.open("https://discord.gg/uE33kBzWVh")}
           />
           <FontAwesomeIcon
-            className="cursor-pointer font-semibold hover:glow"
+            className="cursor-pointer font-semibold hover:text-primary"
             icon={faInstagram}
             onClick={() =>
               window.open("https://www.instagram.com/sehsaa_digi/")
             }
           />
           <FontAwesomeIcon
-            className="cursor-pointer font-semibold hover:glow"
+            className="cursor-pointer font-semibold hover:text-primary"
             icon={faTwitter}
-            onClick={() => window.open("https://twitter.com/sehsaa_digi")}
+            onClick={() => window.open("https://twitter.com/Sehsaa_t")}
           />
-          <div className="!ml-5 cursor-pointer font-semibold hover:glow">
+          <div className="!ml-5 cursor-pointer font-semibold hover:text-primary">
             {IconOpenSea}
           </div>
         </div>

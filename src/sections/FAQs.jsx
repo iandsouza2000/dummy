@@ -89,7 +89,10 @@ const Section = ({ item, index }) => {
 
 const FAQs = () => {
   return (
-    <div className="my-20 text-left w-[300px] mx-auto bg-[#1a1229] rounded-xl px-5 py-4 md:px-10 md:w-[750px]">
+    <div
+      id="faqs"
+      className="my-20 text-left w-[300px] mx-auto bg-[#1a1229] rounded-xl px-5 py-4 md:px-10 md:w-[750px]"
+    >
       {questions.map((item, index) => (
         <Section item={item} index={index} />
       ))}

@@ -4,7 +4,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 import { useState } from "react";
 import dummyModel from "../assets/imgs/dummy-model.png";
-import hero from "../assets/imgs/hero.png";
 
 const cards = [
   {
@@ -90,7 +89,7 @@ const Roadmap = () => {
   const arrowsClass = "border rounded-full p-2 cursor-pointer text-xs";
 
   return (
-    <div className="h-screen">
+    <div id="roadmap" className="h-screen">
       <div className="my-10 mx-auto flex items-center  justify-center space-x-2 px-2 md:space-x-4">
         <FontAwesomeIcon
           className={arrowsClass}
