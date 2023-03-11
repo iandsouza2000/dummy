@@ -33,7 +33,7 @@ const OurTeam = () => {
     <div className="my-20 mx-10 flex justify-around mx-auto gap-y-10 w-[80%] flex-wrap">
       {team.map((item) => (
         <div className="text-left relative">
-          <div className="absolute text-[15px] inset-0 h-[350px] bg-black bg-opacity-70 px-5 py-6 flex flex-col justify-between font-medium  opacity-0 hover:opacity-100 transition duration-500 ease-in-out md:[500px] md:px-10 md:py-20">
+          <div className="absolute text-[15px] inset-0 h-[350px] bg-black bg-opacity-70 px-5 py-6 flex flex-col justify-between font-medium  opacity-0 hover:opacity-100 transition duration-500 ease-in-out md:h-[500px] md:text-base md:px-10 md:py-20">
             <div>{item.description}</div>
             <div className="flex justify-center space-x-5">
               <FontAwesomeIcon
