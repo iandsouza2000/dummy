@@ -87,17 +87,19 @@ const Roadmap = () => {
     setIndex(index - 1);
   }
 
+  const arrowsClass = "border rounded-full p-2 cursor-pointer text-xs";
+
   return (
     <div className="mb-40">
-      <div className="my-10 mx-auto flex items-center  justify-center space-x-4">
+      <div className="my-10 mx-auto flex items-center  justify-center space-x-2 px-2 md:space-x-4">
         <FontAwesomeIcon
-          className="border rounded-full p-2"
+          className={arrowsClass}
           onClick={prevStep}
           icon={faArrowLeft}
         />
         <AnimatePresence custom={direction}>
           <motion.div
-            className={`w-[600px] rounded-xl  py-5 px-10 text-left flex items-center`}
+            className={`h-[450px] rounded-xl p-5 text-left flex-col flex items-center md:flex-row md:h-auto md:w-[600px] md:px-10`}
             style={{
               backgroundColor: "#120338",
             }}
@@ -108,20 +110,22 @@ const Roadmap = () => {
             key={cards[index]}
             custom={direction}
           >
-            <img className="h-[350px] mx-10" src={dummyModel} />
-            <div>
-              <div className="text-primary font-bold">
+            <img className="h-[150px] md:h-[350px]" src={dummyModel} />
+            <div className="mt-3">
+              <div className="text-primary text-xs font-bold md:text-base">
                 PHASE {cards[index].number}
               </div>
-              <div className="text-3xl font-bold mt-4 mb-4">
+              <div className="text-xl font-bold my-2 md:text-3xl md:my-4">
                 {cards[index].title}
               </div>
-              <div>{cards[index].description}</div>
+              <div className="text-sm md:text-base">
+                {cards[index].description}
+              </div>
             </div>
           </motion.div>
         </AnimatePresence>
         <FontAwesomeIcon
-          className="border rounded-full p-2 cursor-pointer"
+          className={arrowsClass}
           onClick={nextStep}
           icon={faArrowRight}
         />
@@ -153,7 +157,7 @@ const Roadmap = () => {
       </div>
 
       <div
-        className="w-[500px] mx-auto rounded-xl"
+        className="w-[250px] mx-auto rounded-xl md:w-[400px]"
         style={{
           backgroundColor: "#24027a",
         }}

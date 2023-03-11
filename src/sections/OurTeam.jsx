@@ -51,7 +51,7 @@ const OurTeam = () => {
             </div>
           </div>
           <img
-            className="w-[250px] h-[350px] mb-4 rounded-xl border-2 border-primary transition duration-500 ease-in-out md:w-[400px] md:h-[500px] md:mb-6"
+            className="w-[250px] h-[350px] object-cover mb-4 rounded-xl border-2 border-primary transition duration-500 ease-in-out md:w-[400px] md:h-[500px] md:mb-6"
             src={dummyImg}
             alt="Team"
           />
