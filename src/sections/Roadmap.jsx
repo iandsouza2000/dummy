@@ -90,7 +90,7 @@ const Roadmap = () => {
   const arrowsClass = "border rounded-full p-2 cursor-pointer text-xs";
 
   return (
-    <div className="mb-40">
+    <div className="h-screen">
       <div className="my-10 mx-auto flex items-center  justify-center space-x-2 px-2 md:space-x-4">
         <FontAwesomeIcon
           className={arrowsClass}
@@ -99,10 +99,7 @@ const Roadmap = () => {
         />
         <AnimatePresence custom={direction}>
           <motion.div
-            className={`h-[450px] rounded-xl p-5 text-left flex-col flex items-center md:flex-row md:h-auto md:w-[600px] md:px-10`}
-            style={{
-              backgroundColor: "#120338",
-            }}
+            className={` rounded-xl p-5 text-left flex items-center w-[60vw] justify-between`}
             variants={variants}
             animate="animate"
             initial="initial"
@@ -110,8 +107,7 @@ const Roadmap = () => {
             key={cards[index]}
             custom={direction}
           >
-            <img className="h-[150px] md:h-[350px]" src={dummyModel} />
-            <div className="mt-3">
+            <div className="mt-3 w-[500px]">
               <div className="text-primary text-xs font-bold md:text-base">
                 PHASE {cards[index].number}
               </div>
@@ -122,6 +118,7 @@ const Roadmap = () => {
                 {cards[index].description}
               </div>
             </div>
+            <img className="h-[450px]" src={dummyModel} />
           </motion.div>
         </AnimatePresence>
         <FontAwesomeIcon

@@ -30,10 +30,10 @@ const team = [
 
 const OurTeam = () => {
   return (
-    <div className="my-20 mx-10 flex justify-around mx-auto gap-y-10 w-[80%] flex-wrap">
+    <div className="w-[70vw] flex flex-wrap justify-around mx-auto gap-y-10 flex-wrap">
       {team.map((item) => (
         <div className="text-left relative">
-          <div className="absolute text-[15px] inset-0 h-[350px] bg-black bg-opacity-70 px-5 py-6 flex flex-col justify-between font-medium  opacity-0 hover:opacity-100 transition duration-500 ease-in-out md:h-[500px] md:text-base md:px-10 md:py-20">
+          <div className="absolute text-[15px] inset-0 h-[350px] bg-black bg-opacity-70 px-5 py-6 flex flex-col justify-between font-medium  opacity-0 hover:opacity-100 transition duration-500 ease-in-out md:h-[400px] md:text-base md:px-10 md:py-10">
             <div>{item.description}</div>
             <div className="flex justify-center space-x-5">
               <FontAwesomeIcon
@@ -51,7 +51,7 @@ const OurTeam = () => {
             </div>
           </div>
           <img
-            className="w-[250px] h-[350px] object-cover mb-4 rounded-xl border-2 border-primary transition duration-500 ease-in-out md:w-[400px] md:h-[500px] md:mb-6"
+            className="w-[250px] h-[350px] object-cover mb-4 rounded-xl border-2 border-primary transition duration-500 ease-in-out md:w-[350px] md:h-[400px] md:mb-6"
             src={dummyImg}
             alt="Team"
           />
