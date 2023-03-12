@@ -5,7 +5,7 @@ import hero from "../assets/imgs/hero.png";
 
 const Hero = () => {
   return (
-    <div id="home">
+    <div id="home" className="h-screen md:auto">
       <motion.img
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 import { useState } from "react";
 import dummyModel from "../assets/imgs/dummy-model.png";
+import { useElementOnScreen } from "../utils/hooks";
 
 const cards = [
   {
@@ -68,6 +69,9 @@ const Roadmap = () => {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
+  const [titleRef, isTitleVisible] = useElementOnScreen(0);
+  const [cardRef, isCardsVisible] = useElementOnScreen(0.3);
+
   function nextStep() {
     setDirection(1);
     if (index === cards.length - 1) {
@@ -89,89 +93,85 @@ const Roadmap = () => {
   const arrowsClass = "border rounded-full p-2 cursor-pointer text-xs";
 
   return (
-    <div id="roadmap" className="h-screen">
-      <h2 className="text-[36px] font-bold mb-5 md:mb-10 md:text-[64px]">
-        Sehsaa's Journey
-      </h2>
-
-      <div className="my-10 mx-auto flex items-center  justify-center space-x-2 px-2 md:space-x-4">
-        <FontAwesomeIcon
-          className={arrowsClass}
-          onClick={prevStep}
-          icon={faArrowLeft}
-        />
-        <AnimatePresence custom={direction}>
-          <motion.div
-            className={` rounded-xl p-5 text-left flex items-center w-[60vw] justify-between`}
-            variants={variants}
-            animate="animate"
-            initial="initial"
-            exit="exit"
-            key={cards[index]}
-            custom={direction}
+    <div ref={titleRef} id="roadmap">
+      <div ref={cardRef} id="roadmap" className="h-[800px]">
+        {isTitleVisible && (
+          <motion.h2
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            className="text-[36px] font-bold md:mb-10 md:text-[64px]"
           >
-            <div className="mt-3 w-[500px]">
-              <div className="text-primary text-xs font-bold md:text-base">
-                PHASE {cards[index].number}
-              </div>
-              <div className="text-xl font-bold my-2 md:text-3xl md:my-4">
-                {cards[index].title}
-              </div>
-              <div className="text-sm md:text-base">
-                {cards[index].description}
-              </div>
-            </div>
-            <img className="h-[450px]" src={dummyModel} />
-          </motion.div>
-        </AnimatePresence>
-        <FontAwesomeIcon
-          className={arrowsClass}
-          onClick={nextStep}
-          icon={faArrowRight}
-        />
+            Sehsaa's Journey
+          </motion.h2>
+        )}
 
-        {/* <AnimatePresence>
-          {cards.map((item, i) => {
-            if (i === 0)
-              return (
-                <motion.div
-                  className={`w-[600px] rounded-xl  py-5 px-10 text-left flex items-center`}
-                  style={{
-                    backgroundColor: "#1a122a",
-                  }}
-                >
-                  <img className="h-[350px] mx-10" src={dummyModel} />
-                  <div>
-                    <div className="text-primary font-bold">
-                      PHASE {item?.number}
-                    </div>
-                    <div className="text-3xl font-bold mt-4 mb-4">
-                      {item?.title}
-                    </div>
-                    <div>{item?.description}</div>
+        {isCardsVisible && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            className="mb-10 mt-0 mx-auto flex items-end  justify-center space-x-2 px-2 md:space-x-4 md:items-center md:my-3"
+          >
+            <FontAwesomeIcon
+              className={arrowsClass}
+              onClick={prevStep}
+              icon={faArrowLeft}
+            />
+            <AnimatePresence custom={direction}>
+              <motion.div
+                className={`rounded-xl p-5  text-left flex flex-col items-center w-[60vw] justify-between md:flex-row`}
+                variants={variants}
+                animate="animate"
+                initial="initial"
+                exit="exit"
+                key={cards[index]}
+                custom={direction}
+              >
+                <div className="mt-3 h-[230px] w-[300px] md:h-auto md:w-[500px]">
+                  <div className="text-primary text-xs font-bold md:text-base">
+                    PHASE {cards[index].number}
                   </div>
-                </motion.div>
-              );
-          })}
-        </AnimatePresence> */}
-      </div>
+                  <div className="text-xl font-bold my-2 md:text-3xl md:my-4">
+                    {cards[index].title}
+                  </div>
+                  <div className="text-sm md:text-base">
+                    {cards[index].description}
+                  </div>
+                </div>
+                <img className="h-[250px] md:h-[450px]" src={dummyModel} />
+              </motion.div>
+            </AnimatePresence>
+            <FontAwesomeIcon
+              className={arrowsClass}
+              onClick={nextStep}
+              icon={faArrowRight}
+            />
+          </motion.div>
+        )}
 
-      <div
-        className="w-[250px] mx-auto rounded-xl md:w-[400px]"
-        style={{
-          backgroundColor: "#24027a",
-        }}
-      >
-        <div
-          className="h-2 rounded-xl transition translate"
-          style={{
-            width: (index + 1) * 25 + "%",
-            transition: "all .2s linear",
-            background: "rgb(72,0,255)",
-            background:
-              "radial-gradient(circle, rgba(72,0,255,1) 0%, rgba(226,56,236,1) 100%)",
-          }}
-        />
+        {isCardsVisible && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            className="w-[250px] mx-auto rounded-xl md:w-[400px]"
+            style={{
+              backgroundColor: "#24027a",
+            }}
+          >
+            <div
+              className="h-2 rounded-xl transition translate"
+              style={{
+                width: (index + 1) * 25 + "%",
+                transition: "all .2s linear",
+                background: "rgb(72,0,255)",
+                background:
+                  "radial-gradient(circle, rgba(72,0,255,1) 0%, rgba(226,56,236,1) 100%)",
+              }}
+            />
+          </motion.div>
+        )}
       </div>
     </div>
   );
