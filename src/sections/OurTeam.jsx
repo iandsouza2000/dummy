@@ -31,8 +31,10 @@ const team = [
 ];
 
 const OurTeam = () => {
+  const width = screen.width;
+
   const [titleRef, isVisible] = useElementOnScreen(0);
-  const [cardRef, isCardsVisible] = useElementOnScreen(0.3);
+  const [cardRef, isCardsVisible] = useElementOnScreen(width > 700 ? 0.3 : 0.2);
 
   return (
     <div id="team" ref={titleRef}>

@@ -90,7 +90,7 @@ const Section = ({ item, index }) => {
 };
 
 const FAQs = () => {
-  const [containerRef, isVisible] = useElementOnScreen(0.2);
+  const [containerRef, isVisible] = useElementOnScreen(0);
 
   return (
     <div
