@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 import { useState } from "react";
+import { useElementOnScreen } from "../utils/hooks";
 
 const IconRightArrow = (
   <svg
@@ -43,6 +44,7 @@ const questions = [
 
 const Section = ({ item, index }) => {
   const [show, setShow] = useState(false);
+
   return (
     <div
       key={item.q}
@@ -88,14 +90,36 @@ const Section = ({ item, index }) => {
 };
 
 const FAQs = () => {
+  const [containerRef, isVisible] = useElementOnScreen(0.2);
+
   return (
     <div
       id="faqs"
-      className="my-20 text-left w-[300px] mx-auto bg-[#1a1229] rounded-xl px-5 py-4 md:px-10 md:w-[750px]"
+      className={`my-20 ${!isVisible ? "h-screen" : "h-auto"}`}
+      ref={containerRef}
     >
-      {questions.map((item, index) => (
-        <Section item={item} index={index} />
-      ))}
+      {isVisible && (
+        <motion.h2
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+          className="text-[36px] font-bold mb-5 md:mb-10 md:text-[64px]"
+        >
+          Asked Questions
+        </motion.h2>
+      )}
+      {isVisible && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.7, duration: 0.5 }}
+          className="text-left w-[300px] mx-auto bg-[#1a1229] rounded-xl px-5 py-4 md:px-10 md:w-[750px]"
+        >
+          {questions.map((item, index) => (
+            <Section item={item} index={index} />
+          ))}
+        </motion.div>
+      )}
     </div>
   );
 };

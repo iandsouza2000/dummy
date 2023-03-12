@@ -90,6 +90,10 @@ const Roadmap = () => {
 
   return (
     <div id="roadmap" className="h-screen">
+      <h2 className="text-[36px] font-bold mb-5 md:mb-10 md:text-[64px]">
+        Sehsaa's Journey
+      </h2>
+
       <div className="my-10 mx-auto flex items-center  justify-center space-x-2 px-2 md:space-x-4">
         <FontAwesomeIcon
           className={arrowsClass}

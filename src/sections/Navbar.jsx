@@ -59,6 +59,7 @@ const Navbar = () => {
   }, []);
 
   const scroll = (id) => {
+    setShowSidebar(false);
     var element = document.getElementById(id);
     var headerOffset = 96;
     var elementPosition = element.getBoundingClientRect().top;
@@ -72,7 +73,10 @@ const Navbar = () => {
 
   return (
     <div className="">
-      <div className=" justify-between py-4 items-center relative px-10 hidden md:flex">
+      <div
+        className="z-[99] justify-between py-4 items-center relative px-10 hidden md:flex md:fixed md:w-screen md:bg-opacity-60"
+        style={{ background: scrollPercentage > 0 ? "black" : "none" }}
+      >
         <h1 className="text-3xl m-0 font-passion tracking-wide glow">SEHSAA</h1>
         <div className="flex space-x-10 absolute left-1/2 -translate-x-1/2">
           {nav.map((item) => (
@@ -118,6 +122,7 @@ const Navbar = () => {
         nav={nav}
         show={showSidebar}
         onClose={() => setShowSidebar(false)}
+        scroll={scroll}
       />
     </div>
   );

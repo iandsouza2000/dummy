@@ -9,6 +9,7 @@
   font-family: Space Grotesk;
   font-size: large;
   color-scheme: dark;
+  overflow-x: hidden;
 }
 
 @layer utilities {

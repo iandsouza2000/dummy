@@ -27,7 +27,7 @@ const IconOpenSea = (
   </svg>
 );
 
-const Sidebar = ({ nav, show, onClose }) => {
+const Sidebar = ({ nav, show, onClose, scroll }) => {
   return (
     <>
       {show && (
@@ -52,7 +52,13 @@ const Sidebar = ({ nav, show, onClose }) => {
             </h1>
             <div className="space-y-4 mt-8 mb-10">
               {nav.map((item) => (
-                <div className="font-medium">{item}</div>
+                <div
+                  key={item.name}
+                  onClick={() => scroll(item.id)}
+                  className="font-medium cursor-pointer"
+                >
+                  {item.name}
+                </div>
               ))}
             </div>
 
