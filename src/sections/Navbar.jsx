@@ -111,12 +111,17 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className="flex w-full justify-end py-4 px-10 md:hidden">
-        <FontAwesomeIcon
-          className="text-xl"
-          icon={faBars}
-          onClick={() => setShowSidebar(true)}
-        />
+      <div
+        className="flex w-screen fixed bg-opacity-60 inset-0 h-10 justify-end py-4 px-10 md:hidden"
+        style={{ background: scrollPercentage > 0 ? "black" : "none" }}
+      >
+        <div>
+          <FontAwesomeIcon
+            className="text-xl float-right"
+            icon={faBars}
+            onClick={() => setShowSidebar(true)}
+          />
+        </div>
       </div>
       <Sidebar
         nav={nav}

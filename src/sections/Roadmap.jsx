@@ -5,6 +5,7 @@ import React from "react";
 import { useState } from "react";
 import dummyModel from "../assets/imgs/dummy-model.png";
 import { useElementOnScreen } from "../utils/hooks";
+import { IconRightArrow } from "../utils/icons";
 
 const cards = [
   {
@@ -90,7 +91,7 @@ const Roadmap = () => {
     setIndex(index - 1);
   }
 
-  const arrowsClass = "border rounded-full p-2 cursor-pointer text-xs";
+  const arrowsClass = "cursor-pointer h-7 w-7";
 
   return (
     <div ref={titleRef} id="roadmap">
@@ -113,11 +114,12 @@ const Roadmap = () => {
             transition={{ delay: 0.5, duration: 0.5 }}
             className="mb-10 mt-0 mx-auto flex items-end  justify-center space-x-2 px-2 md:space-x-4 md:items-center md:my-3"
           >
-            <FontAwesomeIcon
-              className={arrowsClass}
+            <div
               onClick={prevStep}
-              icon={faArrowLeft}
-            />
+              className={arrowsClass + " rotate-180 mr-5"}
+            >
+              {IconRightArrow}
+            </div>
             <AnimatePresence custom={direction}>
               <motion.div
                 className={`rounded-xl p-5  text-left flex flex-col items-center w-[60vw] justify-between md:flex-row`}
@@ -139,14 +141,15 @@ const Roadmap = () => {
                     {cards[index].description}
                   </div>
                 </div>
-                <img className="h-[250px] md:h-[450px]" src={dummyModel} />
+                <img
+                  className="h-[250px] -mt-10 md:h-[450px]"
+                  src={dummyModel}
+                />
               </motion.div>
             </AnimatePresence>
-            <FontAwesomeIcon
-              className={arrowsClass}
-              onClick={nextStep}
-              icon={faArrowRight}
-            />
+            <div onClick={nextStep} className={arrowsClass}>
+              {IconRightArrow}
+            </div>
           </motion.div>
         )}
 

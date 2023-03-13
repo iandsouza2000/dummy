@@ -42,11 +42,13 @@ const Sidebar = ({ nav, show, onClose, scroll }) => {
             transition={{ ease: easeInOut, duration: 0.4 }}
             className="fixed h-screen inset-y-0 z-50 right-0 w-[300px] py-10 text-left px-8 bg-[#0f051d]"
           >
-            <FontAwesomeIcon
-              onClick={onClose}
-              icon={faClose}
-              className="text-primary text-xl float-right  -mt-5"
-            />
+            <div>
+              <FontAwesomeIcon
+                onClick={onClose}
+                icon={faClose}
+                className="text-primary text-xl float-right  -mt-5"
+              />
+            </div>
             <h1 className="text-3xl m-0 font-passion tracking-wide glow">
               SEHSAA
             </h1>
