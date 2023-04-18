@@ -29,6 +29,7 @@ const IconOpenSea = (
 
 const nav = [
   { name: "Home", id: "home" },
+  { name: "Gallery", id: "gallery" },
   { name: "Roadmap", id: "roadmap" },
   { name: "Team", id: "team" },
   { name: "FAQ", id: "faqs" },
@@ -74,8 +75,8 @@ const Navbar = () => {
   return (
     <div className="">
       <div
-        className="z-[99] justify-between py-4 items-center relative px-10 hidden md:flex md:fixed md:w-screen md:bg-opacity-60"
-        style={{ background: scrollPercentage > 0 ? "black" : "none" }}
+        className="z-[99] justify-between py-4 items-center relative px-10 hidden md:flex md:fixed md:w-screen"
+        style={{ background: scrollPercentage > 0 ? "rgb(0,0,0,0.6)" : "none" }}
       >
         <h1 className="text-3xl m-0 font-passion tracking-wide glow">SEHSAA</h1>
         <div className="flex space-x-10 absolute left-1/2 -translate-x-1/2">
@@ -113,7 +114,7 @@ const Navbar = () => {
       </div>
       <div
         className="flex w-screen fixed bg-opacity-60 inset-0 h-10 justify-end py-4 px-10 md:hidden"
-        style={{ background: scrollPercentage > 0 ? "black" : "none" }}
+        style={{ background: scrollPercentage > 0 ? "rgb(0,0,0,0.6)" : "none" }}
       >
         <div>
           <FontAwesomeIcon
