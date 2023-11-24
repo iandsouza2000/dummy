@@ -1,12 +1,14 @@
-import { useGLTF } from "@react-three/drei";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import vid1 from "./assets/imgs/vid1.webm";
+import vid2 from "./assets/imgs/vid2.webm";
+import vid3 from "./assets/imgs/vid3.webm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faDiscord,
   faInstagram,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import Sidebar from "./components/Sidebar";
 
 const IconOpenSea = (
   <svg
@@ -40,51 +42,73 @@ const IconMap = (
 );
 
 const Demo = ({ ...props }) => {
-  return (
-    <div className="gradient relative">
-      <div className="flex justify-between items-center py-8 px-12">
-        <h1 className="text-3xl m-0 font-passion tracking-wide">SEHSAA</h1>
+  const [currentAvatar, setCurrentAvatar] = useState(0);
+  const [showSidebar, setShowSidebar] = useState(false);
 
-        <div className="flex items-center space-x-6">
-          <FontAwesomeIcon
-            className="cursor-pointer font-semibold hover:text-primary"
-            icon={faDiscord}
-            onClick={() => window.open("https://discord.gg/uE33kBzWVh")}
-          />
-          <FontAwesomeIcon
-            className="cursor-pointer font-semibold hover:text-primary"
-            icon={faInstagram}
+  const characters = [vid1, vid2, vid3];
+
+  return (
+    <>
+      <div className="gradient-2">
+        <div className="flex justify-between items-center py-8 px-12">
+          <h1 className="text-3xl m-0 font-passion tracking-wide">SEHSAA</h1>
+
+          <div className="flex items-center space-x-6">
+            <FontAwesomeIcon
+              className="cursor-pointer font-semibold hover:text-primary"
+              icon={faDiscord}
+              onClick={() => window.open("https://discord.gg/uE33kBzWVh")}
+            />
+            <FontAwesomeIcon
+              className="cursor-pointer font-semibold hover:text-primary"
+              icon={faInstagram}
+              onClick={() =>
+                window.open("https://www.instagram.com/sehsaa_digi/")
+              }
+            />
+            <FontAwesomeIcon
+              className="cursor-pointer font-semibold hover:text-primary"
+              icon={faTwitter}
+              onClick={() => window.open("https://twitter.com/Sehsaa_t")}
+            />
+            <div className="!ml-5 cursor-pointer font-semibold hover:text-primary">
+              {IconOpenSea}
+            </div>
+          </div>
+        </div>
+        <div className="absolute left-12 bottom-8 flex items-center">
+          <div
+            onClick={() => setShowSidebar(true)}
+            className="bg-black text-sm font-bold px-4 py-2 rounded-3xl flex items-center cursor-pointer bg-opacity-60 group"
+          >
+            OUR ROADMAP{" "}
+            <div className="ml-2 text-black group-hover:bg-slate-800 rounded-full p-2 bg-white group-hover:text-white">
+              {IconMap}
+            </div>
+          </div>
+        </div>
+        <div className="absolute bottom-10 flex items-center left-[50%] transform translate-x-[-50%]">
+          <div
             onClick={() =>
-              window.open("https://www.instagram.com/sehsaa_digi/")
+              setCurrentAvatar(currentAvatar === 2 ? 0 : currentAvatar + 1)
             }
-          />
-          <FontAwesomeIcon
-            className="cursor-pointer font-semibold hover:text-primary"
-            icon={faTwitter}
-            onClick={() => window.open("https://twitter.com/Sehsaa_t")}
-          />
-          <div className="!ml-5 cursor-pointer font-semibold hover:text-primary">
-            {IconOpenSea}
+            className="bg-black text-sm font-bold px-4 py-2 rounded-3xl flex items-center cursor-pointer bg-opacity-50 group"
+          >
+            SWITCH AVATAR
           </div>
         </div>
+        <video
+          id="video1"
+          className="h-[600px] absolute top-[40%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]"
+          autoPlay
+          loop
+          muted
+          src={characters[currentAvatar]}
+        />
       </div>
-      <div className="absolute left-12 bottom-8 flex justify-center items-center">
-        <div className="bg-white text-sm font-bold px-4 py-2 rounded-3xl flex items-center cursor-pointer bg-opacity-30 group">
-          OUR ROADMAP{" "}
-          <div className="ml-2 bg-slate-800 rounded-full p-2 group-hover:bg-white group-hover:text-black">
-            {IconMap}
-          </div>
-        </div>
-      </div>
-      <video
-        id="video1"
-        className="h-[600px] absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]"
-        autoPlay
-        loop
-        muted
-        src={vid1}
-      />
-    </div>
+
+      <Sidebar show={showSidebar} onClose={() => setShowSidebar(false)} />
+    </>
   );
 };
 

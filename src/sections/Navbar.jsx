@@ -129,6 +129,7 @@ const Navbar = () => {
         show={showSidebar}
         onClose={() => setShowSidebar(false)}
         scroll={scroll}
+        iconMap={IconMap}
       />
     </div>
   );
