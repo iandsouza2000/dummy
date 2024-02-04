@@ -1,7 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import vid1 from "./assets/imgs/vid1.webm";
-import vid2 from "./assets/imgs/vid2.webm";
-import vid3 from "./assets/imgs/vid3.webm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faDiscord,
@@ -9,6 +6,8 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import Sidebar from "./components/Sidebar";
+import { IconMenu } from "./utils/icons";
+import NavMenu from "./components/NavMenu";
 
 const IconOpenSea = (
   <svg
@@ -45,7 +44,11 @@ const Demo = ({ ...props }) => {
   const [currentAvatar, setCurrentAvatar] = useState(0);
   const [showSidebar, setShowSidebar] = useState(false);
 
-  const characters = [vid1, vid2, vid3];
+  const characters = [
+    "https://res.cloudinary.com/dgysi2348/video/upload/v1705426034/vid2_ll1dqb.webm",
+    "https://res.cloudinary.com/dgysi2348/video/upload/v1705426031/vid1_mn5gqd.webm",
+    "https://res.cloudinary.com/dgysi2348/video/upload/v1705426025/vid3_j2ccdh.webm",
+  ];
 
   return (
     <>
@@ -53,28 +56,7 @@ const Demo = ({ ...props }) => {
         <div className="flex justify-between items-center py-8 px-12">
           <h1 className="text-3xl m-0 font-passion tracking-wide">SEHSAA</h1>
 
-          <div className="flex items-center space-x-6">
-            <FontAwesomeIcon
-              className="cursor-pointer font-semibold hover:text-primary"
-              icon={faDiscord}
-              onClick={() => window.open("https://discord.gg/uE33kBzWVh")}
-            />
-            <FontAwesomeIcon
-              className="cursor-pointer font-semibold hover:text-primary"
-              icon={faInstagram}
-              onClick={() =>
-                window.open("https://www.instagram.com/sehsaa_digi/")
-              }
-            />
-            <FontAwesomeIcon
-              className="cursor-pointer font-semibold hover:text-primary"
-              icon={faTwitter}
-              onClick={() => window.open("https://twitter.com/Sehsaa_t")}
-            />
-            <div className="!ml-5 cursor-pointer font-semibold hover:text-primary">
-              {IconOpenSea}
-            </div>
-          </div>
+          <div className="flex items-center space-x-6">{IconMenu}</div>
         </div>
         <div className="absolute left-12 bottom-8 flex items-center">
           <div

@@ -1,35 +1,37 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faLinkedin,
-  faTwitter,
-  faInstagram,
-} from "@fortawesome/free-brands-svg-icons";
 import React, { useRef } from "react";
-import dummyImg from "../assets/imgs/dummy.jpeg";
 import { motion } from "framer-motion";
 import { useElementOnScreen } from "../utils/hooks";
 
 const team = [
   {
-    name: "Kshitij",
-    role: "Founder",
-    description:
-      "Meet Kshitij, the visionary designer behind Sehsaa, a luxury resort and swimwear brand based in Mumbai, India. Kshitij's passion for fashion and design shines through in his work, as he strives to create the most stylish and sophisticated clothing for your next vacation.",
+    name: "Bruce Wayne",
+    role: "The Batman",
+    image:
+      "https://s3-us-west-2.amazonaws.com/files.geekgirlauthority.com/wp-content/uploads/2017/10/BatmanPoster-JusticeLeague-691x1024.jpg",
+    description: "The Dark Knight Of Gotham.",
   },
   {
-    name: "Jeet",
-    role: "Founder",
-    description:
-      "Meet Jeet, the IT lead for our project. Jeet is responsible for leading and managing multiple teams that handle crucial aspects of our project, including 3D designing, contract creation, and social media marketing. ",
+    name: "Arthur Curry",
+    role: "Aquaman",
+    image:
+      "https://gamespot.com/a/uploads/original/1557/15576725/3296254-justice_league_1.jpg",
+    description: "The King of The Seas",
   },
   {
-    name: "Rian",
-    role: "Marketing Head",
-    description:
-      "Meet Rian, the talented fashion designer behind our latest project. With his expertise in fashion design, Rian is leading the charge in creating stunning sketches and clothing designs for our NFT avatars.",
+    name: "Victor Stone",
+    role: "Cyborg",
+    image:
+      "https://mlpnk72yciwc.i.optimole.com/cqhiHLc.IIZS~2ef73/w:auto/h:auto/q:75/https://bleedingcool.com/wp-content/uploads/2017/10/justice-league-3.jpg",
+    description: "The Man/Machine",
+  },
+  {
+    name: "Barry Allen",
+    role: "The Flash",
+    image:
+      "https://pbs.twimg.com/media/DK3m4BXVwAATziK?format=jpg&name=4096x4096",
+    description: "The Fastest Man Alive",
   },
 ];
-
 const OurTeam = () => {
   const width = screen.width;
 
@@ -38,20 +40,20 @@ const OurTeam = () => {
 
   return (
     <div id="team" ref={titleRef}>
-      <div className="h-[1400px] md:h-[1200px]" ref={cardRef}>
+      <div className="py-12" ref={cardRef}>
         {isVisible && (
           <motion.h2
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.5 }}
-            className="text-[42px] font-bold mb-5 md:mb-10 md:text-[64px]"
+            className="text-[52px] font-bold mb-10"
           >
-            Meet The Team
+            MEET THE TEAM
           </motion.h2>
         )}
 
         <div
-          className={`w-[70vw] flex flex-wrap justify-around mx-auto gap-y-10 flex-wrap`}
+          className={`w-[70vw] flex justify-around mx-auto gap-y-16 flex-wrap`}
         >
           {isCardsVisible &&
             team.map((item, index) => (
@@ -65,34 +67,27 @@ const OurTeam = () => {
                   stiffness: 50,
                   delay: 0.6,
                 }}
-                className="text-left relative"
+                className="text-left relative group"
               >
-                <div className="absolute text-[15px] inset-0 h-[350px] bg-black bg-opacity-70 px-5 py-6 flex flex-col justify-between font-medium  opacity-0 hover:opacity-100 transition duration-500 ease-in-out md:h-[400px] md:text-base md:px-10 md:py-10">
-                  <div>{item.description}</div>
-                  <div className="flex justify-center space-x-5">
-                    <FontAwesomeIcon
-                      className="cursor-pointer font-semibold hover:glow"
-                      icon={faLinkedin}
-                    />
-                    <FontAwesomeIcon
-                      className="cursor-pointer font-semibold hover:glow"
-                      icon={faInstagram}
-                    />
-                    <FontAwesomeIcon
-                      className="cursor-pointer font-semibold hover:glow"
-                      icon={faTwitter}
-                    />
+                <div className="absolute inset-0 h-full bg-black bg-opacity-50 px-5 py-6 flex flex-col justify-between font-medium  opacity-100 hover:opacity-0 transition duration-500 ease-in-out"></div>
+                <div className="absolute px-4 pb-6 flex flex-col justify-end bottom-0 w-full h-40 group-hover:opacity-100 transition duration-500 ease-in-out">
+                  <div>
+                    <div className="text-xl font-bold md:text-2xl md:mb-1 uppercase">
+                      {item.name}
+                    </div>
+                    <div className="text-xs font-bold text-gray-400 uppercase">
+                      {item.role}
+                    </div>
+                  </div>
+                  <div className="text-xs mt-3 hidden group-hover:block">
+                    {item.description}
                   </div>
                 </div>
                 <img
-                  className="w-[250px] h-[350px] object-cover mb-4 rounded-xl border-2 border-primary transition duration-500 ease-in-out md:w-[350px] md:h-[400px] md:mb-6"
-                  src={dummyImg}
+                  className="h-[500px] w-[350px]"
+                  src={item.image}
                   alt="Team"
                 />
-                <div className="text-xl text-primary font-bold md:text-2xl md:mb-1">
-                  {item.name}
-                </div>
-                <div className="text-sm md: text-base">{item.role}</div>
               </motion.div>
             ))}
         </div>
