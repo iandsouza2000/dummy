@@ -9,7 +9,7 @@ module.exports = {
         passion: ['"Passion One"', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        primary: "#e238ec",
+        primary: "#231f20",
       },
     },
   },

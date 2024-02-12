@@ -31,6 +31,34 @@ const team = [
       "https://pbs.twimg.com/media/DK3m4BXVwAATziK?format=jpg&name=4096x4096",
     description: "The Fastest Man Alive",
   },
+  {
+    name: "Bruce Wayne",
+    role: "The Batman",
+    image:
+      "https://s3-us-west-2.amazonaws.com/files.geekgirlauthority.com/wp-content/uploads/2017/10/BatmanPoster-JusticeLeague-691x1024.jpg",
+    description: "The Dark Knight Of Gotham.",
+  },
+  {
+    name: "Arthur Curry",
+    role: "Aquaman",
+    image:
+      "https://gamespot.com/a/uploads/original/1557/15576725/3296254-justice_league_1.jpg",
+    description: "The King of The Seas",
+  },
+  {
+    name: "Victor Stone",
+    role: "Cyborg",
+    image:
+      "https://mlpnk72yciwc.i.optimole.com/cqhiHLc.IIZS~2ef73/w:auto/h:auto/q:75/https://bleedingcool.com/wp-content/uploads/2017/10/justice-league-3.jpg",
+    description: "The Man/Machine",
+  },
+  {
+    name: "Barry Allen",
+    role: "The Flash",
+    image:
+      "https://pbs.twimg.com/media/DK3m4BXVwAATziK?format=jpg&name=4096x4096",
+    description: "The Fastest Man Alive",
+  },
 ];
 const OurTeam = () => {
   const width = screen.width;
@@ -46,14 +74,14 @@ const OurTeam = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.5 }}
-            className="text-[52px] font-bold mb-10"
+            className="text-[32px] font-bold mb-6 md:text-[52px] md:mb-10"
           >
             MEET THE TEAM
           </motion.h2>
         )}
 
         <div
-          className={`w-[70vw] flex justify-around mx-auto gap-y-16 flex-wrap`}
+          className={`flex gap-x-5 justify-around mx-5 gap-y-8 md:gap-y-16 flex-wrap`}
         >
           {isCardsVisible &&
             team.map((item, index) => (
@@ -84,7 +112,7 @@ const OurTeam = () => {
                   </div>
                 </div>
                 <img
-                  className="h-[500px] w-[350px]"
+                  className="h-[450px] w-[300px] md:h-[500px] md:w-[350px]"
                   src={item.image}
                   alt="Team"
                 />

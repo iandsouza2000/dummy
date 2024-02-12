@@ -4,6 +4,7 @@ import img1 from "../assets/imgs/roadmap-1.png";
 import img2 from "../assets/imgs/roadmap-2.png";
 import img3 from "../assets/imgs/roadmap-3.png";
 import img4 from "../assets/imgs/roadmap-4.png";
+import { IconClose } from "../utils/icons";
 
 const ROADMAP = [
   {
@@ -56,21 +57,24 @@ const Sidebar = ({ show, onClose }) => {
             animate={{ x: 0 }}
             exit={{ x: "-100vw" }}
             transition={{ ease: easeInOut, duration: 0.4 }}
-            style={{
-              backgroundColor: "#242424",
-            }}
-            className="fixed no-scrollbar overflow-auto h-screen inset-y-0 z-50 left-0 py-10 text-left px-8 w-[700px]"
+            className="fixed no-scrollbar bg-primary overflow-auto h-screen inset-y-0 z-50 left-0 py-10 text-left px-8 w-screen md:w-[700px]"
           >
             <div className="border-l relative">
-              <div className="h-2 w-2 bg-[#242424] border-2 rounded-full absolute -left-1 top-0"></div>
-              <div className="text-2xl pt-8 pl-16 font-bold flex space-x-2 mb-8">
+              <div
+                onClick={onClose}
+                className="right-0 top-0 rounded-full p-2 bg-white text-black absolute"
+              >
+                {IconClose}
+              </div>
+              <div className="h-2 w-2 bg-primary border-2 rounded-full absolute -left-1 top-0"></div>
+              <div className="text-2xl pt-8 pl-8 md:pl-16 font-bold flex space-x-2 mb-4 md:mb-8">
                 OUR ROADMAP
               </div>
-              <div className="space-y-8">
+              {/* <div className="space-y-8">
                 {ROADMAP.map((item) => (
                   <div className="flex pl-8 items-center space-x-8 relative">
                     <div className="h-1 w-1 bg-white rounded-full border-3 -left-[3px] absolute top-1/2 transform -translate-y-1/2 "></div>
-                    <div className="aspect-[16/9] w-[300px] h-[200px] z-[1]">
+                    <div className="aspect-[16/9] md:w-[300px] h-[200px] z-[1]">
                       <img
                         src={item.img}
                         className={
@@ -78,10 +82,6 @@ const Sidebar = ({ show, onClose }) => {
                         }
                       />
                     </div>
-                    {/* <img
-                      className="rounded-lg w-[300px] h-[180px]"
-                      src={item.img}
-                    /> */}
                     <div className="space-y-2">
                       <div className="uppercase font-bold text-sm">
                         {item.title}
@@ -89,6 +89,27 @@ const Sidebar = ({ show, onClose }) => {
                       <div className="opacity-[0.5] text-xs leading-[22px]">
                         {item.desc}
                       </div>
+                    </div>
+                  </div>
+                ))}
+              </div> */}
+              <div className="space-y-8">
+                {ROADMAP.map((item) => (
+                  <div className="flex flex-col space-x-8 relative">
+                    <div className="h-1 w-1 bg-white rounded-full border-3 -left-[3px] absolute top-1/2 transform -translate-y-1/2 "></div>
+                    <div className="uppercase font-bold text-sm mb-3">
+                      {item.title}
+                    </div>
+                    <div className="aspect-[16/9] w-[250px] h-[150px] z-[1]">
+                      <img
+                        src={item.img}
+                        className={
+                          "relative rounded-md cursor-zoom-in w-full h-full object-cover"
+                        }
+                      />
+                    </div>
+                    <div className="mt-3 w-[250px] text-justify opacity-[0.5] text-xs leading-[22px]">
+                      {item.desc}
                     </div>
                   </div>
                 ))}

@@ -2,6 +2,8 @@ import Demo from "./Demo";
 
 import OurTeam from "./sections/OurTeam";
 
+import Footer from "./sections/Footer";
+
 function App() {
   return (
     <>
@@ -11,9 +13,10 @@ function App() {
       <Roadmap />
       <OurTeam />
       <FAQs />
-      <Footer /> */}
+     */}
       <Demo />
       <OurTeam />
+      <Footer />
     </>
   );
 }

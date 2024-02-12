@@ -57,27 +57,8 @@ const Footer = () => {
         </div>
       </div>
 
-      <FontAwesomeIcon
-        className="cursor-pointer font-semibold hover:text-primary"
-        icon={faDiscord}
-        onClick={() => window.open("https://discord.gg/uE33kBzWVh")}
-      />
-      <FontAwesomeIcon
-        className="cursor-pointer font-semibold hover:text-primary"
-        icon={faInstagram}
-        onClick={() => window.open("https://www.instagram.com/sehsaa_digi/")}
-      />
-      <FontAwesomeIcon
-        className="cursor-pointer font-semibold hover:text-primary"
-        icon={faTwitter}
-        onClick={() => window.open("https://twitter.com/Sehsaa_t")}
-      />
-      <div className="!ml-5 cursor-pointer font-semibold hover:text-primary">
-        {IconOpenSea}
-      </div>
-
       <div className="border-t w-[80%] mx-auto pt-8 mt-32 text-sm md:text-base">
-        © 2023 Sehsaa. All Rights Reserved.
+        © 2024 Sehsaa. All Rights Reserved.
       </div>
     </div>
   );
