@@ -27,22 +27,26 @@ const Demo = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
+  const isMobile = window.screen.width < 600;
+
   const characters = [
     "https://res.cloudinary.com/dgysi2348/video/upload/v1705426034/vid2_ll1dqb.webm",
     "https://res.cloudinary.com/dgysi2348/video/upload/v1705426031/vid1_mn5gqd.webm",
     "https://res.cloudinary.com/dgysi2348/video/upload/v1705426025/vid3_j2ccdh.webm",
   ];
+
+  const mobileCharacters = [
+    "https://res.cloudinary.com/dgysi2348/video/upload/v1707848888/dummy_kgoxxo.mp4",
+  ];
+
   return (
     <>
       <div className="h-screen">
         <div className="flex justify-between items-center py-4 md:py-8 px-4 md:px-12">
-          {/* <h1 className="text-2xl md:text-3xl m-0 font-passion tracking-wide">
-            SEHSAA
-          </h1> */}
           <div className="w-20 md:w-24">
             <img src={logo} />
           </div>
-          {false ? (
+          {!isMobile ? (
             <div className="flex justify-center items-center space-x-6">
               <FontAwesomeIcon
                 className="cursor-pointer font-semibold hover:glow"
@@ -102,7 +106,11 @@ const Demo = () => {
           autoPlay
           loop
           muted
-          src={characters[currentAvatar]}
+          src={
+            isMobile
+              ? mobileCharacters[currentAvatar]
+              : characters[currentAvatar]
+          }
         />
       </div>
 
