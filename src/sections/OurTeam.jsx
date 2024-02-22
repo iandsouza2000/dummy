@@ -68,7 +68,7 @@ const OurTeam = () => {
 
   return (
     <div id="team" ref={titleRef}>
-      <div className="py-12" ref={cardRef}>
+      <div className="py-12">
         {isVisible && (
           <motion.h2
             initial={{ opacity: 0 }}
@@ -82,34 +82,41 @@ const OurTeam = () => {
 
         <div
           className={`flex gap-x-5 justify-around mx-5 gap-y-8 md:gap-y-16 flex-wrap`}
+          ref={cardRef}
         >
           {isCardsVisible &&
-            team.map((item, index) => (
+            team.map((item) => (
               <motion.div
-                initial={{ x: index % 2 === 0 ? "-100vw" : "100vw" }}
-                animate={{ x: 0 }}
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
                 transition={{
                   duration: 1,
-                  ease: "easeInOut",
-                  type: "spring",
-                  stiffness: 50,
                   delay: 0.6,
                 }}
                 className="text-left relative group"
               >
                 <div className="absolute inset-0 h-full bg-black bg-opacity-50 px-5 py-6 flex flex-col justify-between font-medium  opacity-100 hover:opacity-0 transition duration-500 ease-in-out"></div>
                 <div className="absolute px-4 pb-6 flex flex-col justify-end bottom-0 w-full h-40 group-hover:opacity-100 transition duration-500 ease-in-out">
-                  <div>
+                  <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.8 }}
+                  >
                     <div className="text-xl font-bold md:text-2xl md:mb-1 uppercase">
                       {item.name}
                     </div>
                     <div className="text-xs font-bold text-gray-400 uppercase">
                       {item.role}
                     </div>
-                  </div>
-                  <div className="text-xs mt-3 hidden group-hover:block">
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }} // Start with opacity 0 and a slight y offset
+                    animate={{ opacity: 1, y: 0 }} // Animate to full opacity and original position
+                    transition={{ duration: 0.5 }} // Transition smoothly
+                    className="text-xs mt-3 hidden group-hover:block"
+                  >
                     {item.description}
-                  </div>
+                  </motion.div>
                 </div>
                 <img
                   className="h-[450px] w-[300px] md:h-[500px] md:w-[350px]"

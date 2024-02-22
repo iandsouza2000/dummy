@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faDiscord,
@@ -30,14 +30,39 @@ const Demo = () => {
   const isMobile = window.screen.width < 600;
 
   const characters = [
-    "https://res.cloudinary.com/dgysi2348/video/upload/v1705426034/vid2_ll1dqb.webm",
-    "https://res.cloudinary.com/dgysi2348/video/upload/v1705426031/vid1_mn5gqd.webm",
-    "https://res.cloudinary.com/dgysi2348/video/upload/v1705426025/vid3_j2ccdh.webm",
+    "https://res.cloudinary.com/dgysi2348/video/upload/v1708620904/Desktop%20Vids/03_Akiko_Render_0001-0120_qkpyxl.webm",
+    "https://res.cloudinary.com/dgysi2348/video/upload/v1708620906/Desktop%20Vids/04_Brielle_Render_0001-0120_vcrmom.webm",
+    "https://res.cloudinary.com/dgysi2348/video/upload/v1708620909/Desktop%20Vids/02_Nia_Render_0001-0120_iqxys9.webm",
+    "https://res.cloudinary.com/dgysi2348/video/upload/v1708620909/Desktop%20Vids/05_Finn_Render_0001-0120_n6q4if.webm",
+    "https://res.cloudinary.com/dgysi2348/video/upload/v1708620910/Desktop%20Vids/06_Locran_Render_0001-0120_jdpvyk.webm",
+    "https://res.cloudinary.com/dgysi2348/video/upload/v1708620912/Desktop%20Vids/08_Jabari_Render_0001-0120_kaewpm.webm",
+    "https://res.cloudinary.com/dgysi2348/video/upload/v1708620911/Desktop%20Vids/07_Khalon_Render_0001-0120_hme6km.webm",
+    "https://res.cloudinary.com/dgysi2348/video/upload/v1708620911/Desktop%20Vids/01_Nia_Render_0001-0120_qpbwl0.webm",
   ];
 
   const mobileCharacters = [
-    "https://res.cloudinary.com/dgysi2348/video/upload/v1707848888/dummy_kgoxxo.mp4",
+    "https://res.cloudinary.com/dgysi2348/video/upload/v1708621864/Mobile%20Vids/01_Nia_Render_0001-0120_Mobile_qonhce.webm",
+    "https://res.cloudinary.com/dgysi2348/video/upload/v1708621864/Mobile%20Vids/03_Akiko_Render_0001-0120_Mobile_cnp3hf.webm",
+    "https://res.cloudinary.com/dgysi2348/video/upload/v1708621864/Mobile%20Vids/02_Nia_Render_0001-0120_Mobile_z9pzuv.webm",
+    "https://res.cloudinary.com/dgysi2348/video/upload/v1708621865/Mobile%20Vids/04_Brielle_Render_0001-0120_Mobile_epw1b3.webm",
+    "https://res.cloudinary.com/dgysi2348/video/upload/v1708621865/Mobile%20Vids/05_Finn_Render_0001-0120_Mobile_iqdhpi.webm",
+    "https://res.cloudinary.com/dgysi2348/video/upload/v1708621865/Mobile%20Vids/06_Locran_Render_0001-0120_Mobile_ue0zxu.webm",
+    "https://res.cloudinary.com/dgysi2348/video/upload/v1708621866/Mobile%20Vids/07_Khalon_Render_0001-0120_Mobile_thlgal.webm",
+    "https://res.cloudinary.com/dgysi2348/video/upload/v1708621867/Mobile%20Vids/08_Jabari_Render_0001-0120_Mobile_juw5b2.webm",
   ];
+
+  useEffect(() => {
+    if (isMobile)
+      mobileCharacters.map((item) => {
+        var img = new Image();
+        img.src = item;
+      });
+    else
+      characters.map((item) => {
+        var img = new Image();
+        img.src = item;
+      });
+  }, []);
 
   return (
     <>
@@ -93,7 +118,7 @@ const Demo = () => {
         <div className="absolute bottom-10 flex items-center left-[50%] transform translate-x-[-50%]">
           <div
             onClick={() =>
-              setCurrentAvatar(currentAvatar === 2 ? 0 : currentAvatar + 1)
+              setCurrentAvatar(currentAvatar < 8 ? currentAvatar + 1 : 0)
             }
             className="bg-primary border-white text-sm font-bold px-4 py-2 rounded-3xl flex items-center cursor-pointer bg-opacity-50 group"
           >
