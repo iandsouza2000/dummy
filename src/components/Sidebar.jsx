@@ -1,9 +1,5 @@
 import { AnimatePresence, easeInOut, motion } from "framer-motion";
 import React from "react";
-import img1 from "../assets/imgs/roadmap-1.png";
-import img2 from "../assets/imgs/roadmap-2.png";
-import img3 from "../assets/imgs/roadmap-3.png";
-import img4 from "../assets/imgs/roadmap-4.png";
 import { IconClose } from "../utils/icons";
 
 const ROADMAP = [

@@ -40,15 +40,21 @@ const Demo = () => {
     "https://res.cloudinary.com/dgysi2348/video/upload/v1708620911/Desktop%20Vids/01_Nia_Render_0001-0120_qpbwl0.webm",
   ];
 
+  // const mobileCharacters = [
+  //   "https://res.cloudinary.com/dgysi2348/video/upload/v1708621864/Mobile%20Vids/01_Nia_Render_0001-0120_Mobile_qonhce.webm",
+  //   "https://res.cloudinary.com/dgysi2348/video/upload/v1708621864/Mobile%20Vids/03_Akiko_Render_0001-0120_Mobile_cnp3hf.webm",
+  //   "https://res.cloudinary.com/dgysi2348/video/upload/v1708621864/Mobile%20Vids/02_Nia_Render_0001-0120_Mobile_z9pzuv.webm",
+  //   "https://res.cloudinary.com/dgysi2348/video/upload/v1708621865/Mobile%20Vids/04_Brielle_Render_0001-0120_Mobile_epw1b3.webm",
+  //   "https://res.cloudinary.com/dgysi2348/video/upload/v1708621865/Mobile%20Vids/05_Finn_Render_0001-0120_Mobile_iqdhpi.webm",
+  //   "https://res.cloudinary.com/dgysi2348/video/upload/v1708621865/Mobile%20Vids/06_Locran_Render_0001-0120_Mobile_ue0zxu.webm",
+  //   "https://res.cloudinary.com/dgysi2348/video/upload/v1708621866/Mobile%20Vids/07_Khalon_Render_0001-0120_Mobile_thlgal.webm",
+  //   "https://res.cloudinary.com/dgysi2348/video/upload/v1708621867/Mobile%20Vids/08_Jabari_Render_0001-0120_Mobile_juw5b2.webm",
+  // ];
+
   const mobileCharacters = [
-    "https://res.cloudinary.com/dgysi2348/video/upload/v1708621864/Mobile%20Vids/01_Nia_Render_0001-0120_Mobile_qonhce.webm",
-    "https://res.cloudinary.com/dgysi2348/video/upload/v1708621864/Mobile%20Vids/03_Akiko_Render_0001-0120_Mobile_cnp3hf.webm",
-    "https://res.cloudinary.com/dgysi2348/video/upload/v1708621864/Mobile%20Vids/02_Nia_Render_0001-0120_Mobile_z9pzuv.webm",
-    "https://res.cloudinary.com/dgysi2348/video/upload/v1708621865/Mobile%20Vids/04_Brielle_Render_0001-0120_Mobile_epw1b3.webm",
-    "https://res.cloudinary.com/dgysi2348/video/upload/v1708621865/Mobile%20Vids/05_Finn_Render_0001-0120_Mobile_iqdhpi.webm",
-    "https://res.cloudinary.com/dgysi2348/video/upload/v1708621865/Mobile%20Vids/06_Locran_Render_0001-0120_Mobile_ue0zxu.webm",
-    "https://res.cloudinary.com/dgysi2348/video/upload/v1708621866/Mobile%20Vids/07_Khalon_Render_0001-0120_Mobile_thlgal.webm",
-    "https://res.cloudinary.com/dgysi2348/video/upload/v1708621867/Mobile%20Vids/08_Jabari_Render_0001-0120_Mobile_juw5b2.webm",
+    "https://res.cloudinary.com/dgysi2348/video/upload/v1709140364/Mobile%20Vids/mp4/02_Nia_Render_0001-0120_Mobile_zxvzeb.mp4",
+    "https://res.cloudinary.com/dgysi2348/video/upload/v1709140364/Mobile%20Vids/mp4/03_Akiko_Render_0001-0120_Mobile_vxgwif.mp4",
+    "https://res.cloudinary.com/dgysi2348/video/upload/v1709140363/Mobile%20Vids/mp4/01_Nia_Render_0001-0120_Mobile_lcissx.mp4",
   ];
 
   useEffect(() => {
@@ -127,15 +133,16 @@ const Demo = () => {
         </div>
         <video
           id="video1"
-          className="h-[500px] md:h-[600px] absolute top-[45%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]"
-          autoPlay
-          loop
-          muted
           src={
             isMobile
               ? mobileCharacters[currentAvatar]
               : characters[currentAvatar]
           }
+          className="h-[500px] md:h-[600px] absolute top-[40%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]"
+          autoPlay
+          loop
+          muted
+          playsInline
         />
       </div>
 
